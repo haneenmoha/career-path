@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Results</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Lato', Arial, sans-serif;
+            background: linear-gradient(to bottom, #1090bb, #ffffff);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        h1 {
+            color: #0f3b92;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .result-box {
+            font-size: 1.5em;
+            margin: 20px auto;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            color: #2e477d;
+            border: 2px solid #b3c7e4;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .career-box {
+            font-size: 1.8em;
+            padding: 15px 30px;
+            background-color: #e3f2fd;
+            color: #0f3b92;
+            border: 2px solid #90caf9;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: inline-block;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #5b88e3;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        a:hover {
+            background-color: #1b555e;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Recommended Career</h1>
+    <div class="result-box">
+        <div class="career-box">
+            <strong>{{ result }}</strong>
+        </div>
+        <p>{{ description }}</p>
+    </div>
+    <a href="/">Back to Home</a>
+</body>
+</html>
