@@ -79,26 +79,6 @@ def recommender():
             return f"Error in recommender: {e}"
     return render_template("/recommender.html", features=dataset.columns[:-1])
 
-@app.route("/personality.html", methods=["GET", "POST"])
-def personality():
-    holland_questions = {
-        "R": ["I enjoy working with machines and tools.", "I like practical tasks over abstract ones."],
-        "I": ["I enjoy solving puzzles and brain teasers.", "I like conducting experiments."],
-        "A": ["I enjoy drawing, painting, or creating visual art.", "I like writing poetry or stories."],
-        "S": ["I enjoy helping people solve their problems.", "I enjoy teaching and educating others."],
-        "E": ["I enjoy leadership roles and responsibilities.", "I like persuading others."],
-        "C": ["I prefer working with numbers and data.", "I enjoy record-keeping and organizing."]
-    }
-    if request.method == "POST":
-        try:
-            scores = {ptype: sum([int(request.form.get(f"{ptype}_{i}", 0)) for i in range(len(questions))])
-                      for ptype, questions in holland_questions.items()}
-            dominant_personality = max(scores, key=scores.get)
-            return redirect(url_for("results", result=dominant_personality))
-        except Exception as e:
-            return f"Error in personality: {e}"
-    return render_template("/personality.html", questions=holland_questions)
-
 @app.route("/results")
 def results():
     result = request.args.get("result", "No result")
